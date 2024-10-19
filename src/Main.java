@@ -10,8 +10,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner lectura=new Scanner(System.in);
+        while (true) {
         System.out.println("Escriba el nombre de una moneda: ");
         String busqueda= lectura.nextLine();
+        if (busqueda.equalsIgnoreCase("XXX")){break;}
         {
             String direccion ="https://v6.exchangerate-api.com/v6/1f76ea4b8742f68115acb789/latest/"+busqueda;
             HttpClient client = HttpClient.newHttpClient();
@@ -23,6 +25,6 @@ public class Main {
             String json=response.body();
             System.out.println(json);
         }
+        }
         System.out.println("Fin");
-    }
-}
+    }}
